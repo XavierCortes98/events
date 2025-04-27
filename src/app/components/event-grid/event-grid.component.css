@@ -1,0 +1,11 @@
+.event_card_container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  padding: 20px;
+}
+@media (min-width: 768px) {
+  .event_card_container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
