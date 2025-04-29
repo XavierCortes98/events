@@ -1,24 +1,28 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
-import { EventDetail } from '../models/eventDetail.model';
+import { EventInfo } from '../models/eventInfo.model';
 import { Events } from '../models/event.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class EventsService {
-  private apiUrl = 'assets/data/events.json';
+  private apiUrlEvents = 'assets/data/events.json';
+  private apiUrlSessions = 'assets/data/event-info';
 
   constructor(private http: HttpClient) {}
 
   getEvents(): Observable<Events[]> {
-    return this.http.get<Events[]>(this.apiUrl);
+    return this.http.get<Events[]>(this.apiUrlEvents);
   }
 
-  getEventInfo(id: string): Observable<EventDetail | null> {
-    return this.http
-      .get<EventDetail>(`${this.apiUrl}/${id}`)
-      .pipe(map((event: EventDetail) => (event.id === id ? event : null)));
+  getEventInfo(id: string): Observable<EventInfo | null> {
+    return this.http.get<EventInfo>(`${this.apiUrlSessions}-${id}.json`).pipe(
+      map((info: EventInfo) => ({
+        ...info,
+        sessions: info.sessions.sort((a, b) => Number(a.date) - Number(b.date)),
+      }))
+    );
   }
 }

@@ -1,11 +1,10 @@
 .event_card_container {
   display: grid;
+  gap: 1rem;
+  padding: 1rem;
   grid-template-columns: 1fr;
-  gap: 20px;
-  padding: 20px;
-}
-@media (min-width: 768px) {
-  .event_card_container {
-    grid-template-columns: 1fr 1fr;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
   }
 }

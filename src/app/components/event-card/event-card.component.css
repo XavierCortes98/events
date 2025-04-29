@@ -1,1 +1,35 @@
+.event_card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border-radius: 16px;
 
+  .event_link {
+    color: var(--blue-color);
+    text-decoration: none;
+    display: block;
+    flex-grow: 1;
+  }
+
+  .event_image {
+    width: 100%;
+    aspect-ratio: 21/9;
+    object-fit: cover;
+  }
+
+  .event_date {
+    padding-left: 8px;
+  }
+  .event_description {
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
+  .event_buy_button {
+    width: 100%;
+    padding: 2em;
+    background-color: var(--blue-color);
+    color: white;
+    border-radius: 8px;
+  }
+}

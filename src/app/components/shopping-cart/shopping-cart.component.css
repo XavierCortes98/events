@@ -1,0 +1,12 @@
+.cart_event_session {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cart_event_session__tickets {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}

@@ -1,9 +1,27 @@
-<mat-card>
+<mat-card appearance="outlined" class="event_card">
   <mat-card-header>
-    <a href="">
+    <a [routerLink]="['/event', event.id]" class="event_link">
       <h2>{{ event.title }}</h2>
-      <h3>{{ event.description }}</h3>
-      <img [src]="event.image" alt="" />
+      <h3>{{ event.subtitle }}</h3>
+      <img class="event_image" [src]="event.image" alt="" />
     </a>
   </mat-card-header>
+  <mat-card-content>
+    <p class="event_date">
+      <span class="event_date_label">Del:</span>
+      <b> {{ event.startDate | date : "dd/MM/yyyy" }}</b>
+      <span class="event_date_label"> Al: </span>
+      <b>{{ event.endDate | date : "dd/MM/yyyy" }}</b>
+    </p>
+    <p class="event_description" [innerHTML]="event.description"></p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button
+      [routerLink]="['/event', event.id]"
+      class="event_buy_button"
+      mat-raised-button
+    >
+      Comprar
+    </button>
+  </mat-card-actions>
 </mat-card>

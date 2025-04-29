@@ -1,0 +1,31 @@
+<div class="container">
+  <h2>Sessiones de {{ eventInfo?.event?.title }}</h2>
+  <div class="event_session_container">
+    <div class="event_session" *ngFor="let eventSession of eventInfo?.sessions">
+      <div class="event_session_info">
+        <h3>
+          <span>Fecha: </span>{{ eventSession.date | date : "dd/MM/yyyy" }}
+          <span>, Disponibilidad: </span> {{ eventSession.availability }}
+        </h3>
+      </div>
+      <div class="event_session_tickets">
+        <button
+          mat-icon-button
+          (click)="increase(eventSession.date, eventSession.availability)"
+        >
+          <mat-icon>add</mat-icon>
+        </button>
+
+        <input
+          matInput
+          type="number"
+          [value]="getCartTickets(eventSession.date)"
+          readonly
+        />
+        <button mat-icon-button (click)="decrease(eventSession.date)">
+          <mat-icon>remove</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
