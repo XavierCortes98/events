@@ -13,8 +13,8 @@ export class EventCardComponent implements OnInit {
     subtitle: '',
     image: '',
     place: '',
-    startDate: new Date(),
-    endDate: new Date(),
+    startDate: 0,
+    endDate: 0,
     description: '',
   };
 

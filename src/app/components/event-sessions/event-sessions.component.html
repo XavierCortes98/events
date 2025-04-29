@@ -1,6 +1,11 @@
 <div class="container">
-  <h2>Sessiones de {{ eventInfo?.event?.title }}</h2>
-  <div class="event_session_container">
+  <h2 *ngIf="!!eventInfo?.sessions?.length">
+    Sessiones de {{ eventInfo?.event?.title }}
+  </h2>
+  <div
+    *ngIf="!!eventInfo?.sessions?.length; else noSessionsFound"
+    class="event_session_container"
+  >
     <div class="event_session" *ngFor="let eventSession of eventInfo?.sessions">
       <div class="event_session_info">
         <h3>
@@ -28,4 +33,7 @@
       </div>
     </div>
   </div>
+  <ng-template #noSessionsFound>
+    <p>EVENT INFO NOT FOUND</p>
+  </ng-template>
 </div>

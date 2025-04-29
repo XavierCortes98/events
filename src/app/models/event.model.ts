@@ -4,7 +4,7 @@ export interface Events {
   subtitle: string;
   image: string;
   place?: string;
-  startDate?: Date;
-  endDate?: Date;
+  startDate?: number;
+  endDate?: number;
   description?: string;
 }
