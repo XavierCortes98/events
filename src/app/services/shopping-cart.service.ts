@@ -40,7 +40,6 @@ export class ShoppingCartService {
           },
         ],
       });
-      return;
     }
     let session = event?.items.find((item) => item.sessionDate === sessionDate);
     if (!session) {
@@ -48,13 +47,13 @@ export class ShoppingCartService {
         sessionDate,
         quantity: 1,
       });
-      return;
     }
     if (session && session.quantity < availability) {
       session.quantity++;
     }
     this.cartItemsSubject.next(cart);
     localStorage.setItem('cart', JSON.stringify(cart));
+    console.log(cart);
   }
 
   decreaseSessionTicket(eventId: string, sessionDate: string) {

@@ -1,17 +1,23 @@
-<div *ngFor="let item of groupedCartItems | async">
-  <h2>
-    {{ item.title }}
-  </h2>
-  <div *ngFor="let sessions of item.items" class="cart_event_session">
-    <div>{{ sessions.sessionDate | date : "dd/MM/yyyy" }}</div>
-    <div class="cart_event_session__tickets">
-      <div>x{{ sessions.quantity }}</div>
-      <button
-        mat-icon-button
-        (click)="delete(item.eventId, sessions.sessionDate)"
-      >
-        <img src="assets/img/trash.png" alt="" />
-      </button>
+<div>
+  <h2>Carrito de la compra</h2>
+  <div *ngIf="!((groupedCartItems | async)?.length === 0); else emptyCart">
+    <div *ngFor="let item of groupedCartItems | async">
+      <h2>
+        {{ item.title }}
+      </h2>
+      <div *ngFor="let sessions of item.items" class="cart_event_session">
+        <div>{{ sessions.sessionDate | date : "dd/MM/yyyy" }}</div>
+        <div class="cart_event_session__tickets">
+          <div>x{{ sessions.quantity }}</div>
+          <button
+            mat-icon-button
+            (click)="delete(item.eventId, sessions.sessionDate)"
+          >
+            <img src="assets/img/trash.png" alt="" />
+          </button>
+        </div>
+      </div>
     </div>
   </div>
+  <ng-template #emptyCart> No hay entradas en el carrito </ng-template>
 </div>

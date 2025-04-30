@@ -9,20 +9,17 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 
 import { AppComponent } from './app.component';
-import { EventCardComponent } from './components/event-card/event-card.component';
-import { EventGridComponent } from './components/event-grid/event-grid.component';
-import { EventSessionsComponent } from './components/event-sessions/event-sessions.component';
-import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 import { EventDetailPageComponent } from './pages/event-detail-page/event-detail-page.component';
+import { ComponentsModule } from './components/components.module';
+import { HeaderComponent } from './shared/header/header.component';
+import { EventspageComponent } from './pages/events-page/eventspage.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    EventCardComponent,
-    EventGridComponent,
-    EventSessionsComponent,
-    ShoppingCartComponent,
+    HeaderComponent,
     EventDetailPageComponent,
+    EventspageComponent,
   ],
   imports: [
     BrowserAnimationsModule,
@@ -33,6 +30,7 @@ import { EventDetailPageComponent } from './pages/event-detail-page/event-detail
     BrowserModule,
     MatCardModule,
     MatIconModule,
+    ComponentsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

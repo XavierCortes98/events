@@ -11,6 +11,10 @@
     flex-grow: 1;
   }
 
+  .event_card_content {
+    flex: 1;
+  }
+
   .event_image {
     width: 100%;
     aspect-ratio: 21/9;
